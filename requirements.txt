@@ -1,0 +1,12 @@
+numpy==1.26.4
+pandas==2.2.2
+Pillow
+scikit-learn
+torch==2.4.1
+torchaudio==2.4.1
+torchvision==0.19.1
+torchviz==0.0.2
+wandb==0.18.1
+tqdm
+matplotlib==3.9.2
+argparse
