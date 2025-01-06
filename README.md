@@ -36,7 +36,8 @@ Ensure you have Python 3.11.9 installed and the required packages:
 pip install -r requirements.txt
 ```
 
-### Dataset
+### Dataset and Pre-trained Weights
+Please download the dataset and pre-trained weights from the official [Hugging Face repository]([https://huggingface.co/](https://huggingface.co/sinabjam/Auto-Strawberry). Update the paths in `config.py` accordingly.
 The dataset used for this project consists of multi-view images captured from two cameras (`cam0`, `cam1`). The annotations are stored in a JSON file specified in `config.py`.
 
 ---
@@ -98,10 +99,5 @@ Contributions are welcome! Please create an issue or submit a pull request if yo
 
 ## Contact
 For inquiries, reach out to Sina Baghbanijam via [email](mailto:sbaghba@ncsu.edu).
-
-
-
-## Citing This Work
-If you use this code in your research, please cite:
 
 @inproceedings{YourPaper2024, title={Your Paper Title}, author={Your Name and Co-Authors}, booktitle={Proceedings of CVPR}, year={2024} }
