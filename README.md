@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset and Pre-trained Weights
-Please download the dataset and pre-trained weights from the official [Hugging Face repository]([https://huggingface.co/](https://huggingface.co/sinabjam/Auto-Strawberry). Update the paths in `config.py` accordingly.
+Please download the dataset and pre-trained weights from the official [Hugging Face repository](https://huggingface.co/sinabjam/Auto-Strawberry). Update the paths in `config.py` accordingly.
 The dataset used for this project consists of multi-view images captured from two cameras (`cam0`, `cam1`). The annotations are stored in a JSON file specified in `config.py`.
 
 ---
