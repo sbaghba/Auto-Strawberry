@@ -3,10 +3,9 @@
 Repository for Automated Attribute Estimation of Strawberry Daughter Plants Using Stereo Vision and Deep Learning.
 
 ## Project Overview
-This project leverages stereo vision and deep learning techniques to estimate various growth attributes of strawberry daughter plants from multi-view images. The system combines ResNet and Vision Transformer (ViT) models to predict features like:
+This project leverages stereo vision and deep learning techniques to estimate various growth attributes of strawberry daughter plants from multi-view images. The system uses modified ResNet, EfficientNet, and Vision Transformer (ViT) models to predict features like:
 - Total Leaf Area
 - Fresh Mass
-- Dry Mass
 - Largest Petiole Length
 - Average Crown Diameter
 
