@@ -16,9 +16,9 @@ The dataset includes images captured using a stereo camera setup, with six image
 
 ## Project Structure
 ```plaintext
-├── datasets/        # Contains data preprocessing and storage
-├── models/          # PyTorch models including ResNet, ViT, and Late Fusion models
-├── utils/           # Utility scripts for saliency maps, visualization, and evaluation
+├── datasets/        # Contains dataset and annotations
+├── models/          # PyTorch models including Late Fusion
+├── utils/           # Utility code for training, visualization, and evaluation.
 ├── visualizations/  # Stores generated plots and model outputs
 ├── config.py        # Configuration file with hyperparameters and paths
 ├── main.py          # Entry point for training, evaluation, and visualization
@@ -76,7 +76,6 @@ The `visualizations/` folder stores:
 - Saliency Maps
 - True vs. Predicted Scatter Plots
 - Residual Histograms
-- Bland-Altman Plots
 
 ---
 
@@ -89,7 +88,7 @@ The `visualizations/` folder stores:
 ---
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
 
 ---
 
@@ -99,7 +98,7 @@ Contributions are welcome! Please create an issue or submit a pull request if yo
 ---
 
 ## Contact
-For inquiries, reach out to Sina Baghban via [email](mailto:your_email@example.com).
+For inquiries, reach out to Sina Baghbanijam via [email](mailto:sbaghba@ncsu.edu).
 
 
 
