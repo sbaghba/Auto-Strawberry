@@ -98,6 +98,4 @@ Contributions are welcome! Please create an issue or submit a pull request if yo
 
 ## Contact
 For inquiries, reach out to Sina Baghbanijam via [email](mailto:sbaghba@ncsu.edu).
-
-
-@inproceedings{YourPaper2024, title={Your Paper Title}, author={Your Name and Co-Authors}, booktitle={Proceedings of CVPR}, year={2024} }
+The paper related to the repository is under review and will be linked after acceptance.
