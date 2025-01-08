@@ -98,4 +98,6 @@ Contributions are welcome! Please create an issue or submit a pull request if yo
 
 ## Contact
 For inquiries, reach out to Sina Baghbanijam via [email](mailto:sbaghba@ncsu.edu).
+
+## Citation
 The paper related to the repository is under review and will be linked after acceptance.
