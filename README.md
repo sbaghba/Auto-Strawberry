@@ -44,6 +44,9 @@ The dataset used for this project consists of multi-view images captured from tw
 
 ## Usage
 
+### Capturing Images on Raspberry PI 5
+If interested in capturing images from PI 5, run `PI5_LeafDetection.py` in `utils/` folder. The code captures three images from each of the two cameras as they pass through the enclosure. Leaves are detected based on their color.
+
 ### Training a Model
 ```bash
 python main.py --mode train
