@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from torchviz import make_dot
 import matplotlib.cm as cm
+import matplotlib.colors as colors
 from config import Config
 
 def plot_predictions(images, measured_labels, estimated_labels):
@@ -80,7 +81,7 @@ def visualize_model_predictions(model, dataloader, num_samples=1000):
     generate_model_architecture_diagram(model)
 
     # Visualize saliency maps
-    visualize_saliency_maps(model, dataloader, num_samples=5, view_index=4)
+    visualize_saliency_maps(model, dataloader, num_samples=3, view_index=1)
 
     print("All visualizations have been generated and saved.")
 
@@ -239,17 +240,17 @@ def denormalize_image(tensor):
 
 def plot_saliency_maps(images, saliency_maps, true_labels, predicted_labels):
     """
-    Plot saliency maps alongside input images.
+    Plot saliency maps alongside input images with heatmap and color bar.
 
     Args:
         images: Input images (batch_size, C, H, W).
         saliency_maps: Computed saliency maps (batch_size, H, W).
         true_labels: True labels corresponding to the images.
         predicted_labels: Predicted labels.
-        output_file: File name to save the plot.
     """
     num_samples = len(images)
     fig, axs = plt.subplots(num_samples, 3, figsize=(15, num_samples * 5))
+    #fig.suptitle('Saliency Maps and Overlay', fontsize=16)
 
     for i in range(num_samples):
         # Denormalize the original image
@@ -260,27 +261,34 @@ def plot_saliency_maps(images, saliency_maps, true_labels, predicted_labels):
         axs[i, 0].axis('off')
         axs[i, 0].set_title(f"True: {true_labels[i]:.2f}, Pred: {predicted_labels[i]:.2f}")
 
-        # Saliency map
+        # Normalize saliency
         saliency = saliency_maps[i]
-        axs[i, 1].imshow(saliency, cmap='hot')
+        saliency_normalized = (saliency - saliency.min()) / (saliency.max() - saliency.min() + 1e-8)
+
+        # Saliency heatmap with color bar
+        im = axs[i, 1].imshow(saliency_normalized, cmap='hot')
         axs[i, 1].axis('off')
         axs[i, 1].set_title("Saliency Map")
 
-        # Overlay
-        overlay = cm.get_cmap('hot')(saliency / saliency.max())[:, :, :3]
+        # Add a color bar next to saliency
+        cbar = fig.colorbar(im, ax=axs[i, 1], fraction=0.046, pad=0.04)
+        cbar.set_label('Saliency Intensity')
+
+        # Overlay saliency on original image
+        overlay = cm.get_cmap('hot')(saliency_normalized)[:, :, :3]
         axs[i, 2].imshow(img, alpha=0.5)
         axs[i, 2].imshow(overlay, alpha=0.6)
         axs[i, 2].axis('off')
         axs[i, 2].set_title("Overlay of Saliency")
 
-    plt.tight_layout()
-    # Save plot dynamically to the save directory
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
     save_path = os.path.join(Config.save_dir, "saliency_maps.png")
-    os.makedirs(Config.save_dir, exist_ok=True)  # Ensure the directory exists
+    os.makedirs(Config.save_dir, exist_ok=True)
     plt.savefig(save_path)
     plt.show()
 
-def visualize_saliency_maps(model, dataloader, num_samples=5, view_index=4):
+
+def visualize_saliency_maps(model, dataloader, num_samples=3, view_index=4):
     """
     Visualize predictions with saliency maps.
 
