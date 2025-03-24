@@ -3,7 +3,23 @@ import torch.nn as nn
 from torchvision import models
 
 def initialize_model(config):
-    if "vit" in config.model_name.lower():
+    if "swin" in config.model_name.lower():
+        # Dynamically determine the Swin model size from config (tiny, small, base)
+        swin_version = config.model_name.split("_")[-1]  # Extract the last part (e.g., 't', 's', 'b')
+        
+        if swin_version == "t":
+            base_model = models.swin_t(weights=models.Swin_T_Weights.IMAGENET1K_V1)  # Swin-Tiny
+        elif swin_version == "s":
+            base_model = models.swin_s(weights=models.Swin_S_Weights.IMAGENET1K_V1)  # Swin-Small
+        elif swin_version == "b":
+            base_model = models.swin_b(weights=models.Swin_B_Weights.IMAGENET1K_V1)  # Swin-Base
+        else:
+            raise ValueError(f"Unsupported Swin version: {swin_version}. Use 'swin_t', 'swin_s', or 'swin_b'.")
+
+        num_ftrs = base_model.head.in_features
+        base_model.head = nn.Identity()  # Remove classification head
+        
+    elif "vit" in config.model_name.lower():
         # Initialize the Vision Transformer model
         base_model = models.__dict__[config.model_name](weights='IMAGENET1K_V1')
         
