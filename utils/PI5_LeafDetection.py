@@ -7,8 +7,8 @@ def detect_green_color(image):
     # Convert image to HSV color space for easier color detection
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     # Define range of green color in HSV
-    lower_orange = np.array([44, 100, 100])
-    upper_orange = np.array([86, 255, 255])
+    lower_green = np.array([44, 100, 100])
+    upper_green = np.array([86, 255, 255])
     # Threshold the HSV image to get only green colors
     mask = cv2.inRange(hsv_image, lower_green, upper_green)
     # Check if there is any green in the frame
