@@ -38,7 +38,7 @@ def monitor_and_capture(picam0, picam1, base_file_path0, base_file_path1, detect
             # Capture an image array for processing
             buffer0 = picam0.capture_array()
             buffer1 = picam1.capture_array()
-            # Check for the color orange in the image
+            # Check for green in the image
             if detect_green_color(buffer0) or detect_green_color(buffer1):
                 print(f"Leaf detected!(Detection #{detection_number})...")
                 sleep(1.6)
