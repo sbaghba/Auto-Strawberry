@@ -30,6 +30,7 @@ def setup_camera(index):
     return picam
 
 def capture_image(picam, file_path):
+    # Capture the image
     picam.capture_file(file_path)
 
 def monitor_and_capture(picam0, picam1, base_file_path0, base_file_path1, detection_number):
