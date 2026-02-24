@@ -69,7 +69,7 @@ Modify `config.py` to set parameters like:
 - `batch_size`
 - `learning_rate`
 - `num_epochs`
-- `model_name` (`resnet34`, `vit_b_16`, `efficientnet_b0`)
+- `model_name` (`resnet34`)
 - `save_dir`
 
 ---
