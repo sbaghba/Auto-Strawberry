@@ -43,7 +43,7 @@ class Config:
     seed = 42
     
     # Name of the model to be used
-    model_name = 'swin_t' # Example: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'efficientnet_b0', 'efficientnet_b1', 'efficientnet_b2', 'efficientnet_b3', 'efficientnet_b4', 'efficientnet_b5', 'efficientnet_b6', 'efficientnet_b7', 'vit_b_16', 'vit_b_32', 'swin_t', 'swin_s', 'swin_b', etc.    
+    model_name = 'resnet34' # Example: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', etc.    
     
     # Output feature to be predicted
     output_feature = 'Total_leaf_area_of_DP'  # Example: "Total_leaf_area_of_DP", "largest_Petiol_length_cm", "fresh_mass_g", "Avg_crown_diameter", etc.
